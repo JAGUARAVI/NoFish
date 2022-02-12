@@ -18,6 +18,16 @@ module.exports = class ReadyEvent extends BaseEvent {
             }));
 
         client.log.success(`Logged in as ${client.user.tag}!`);
+
+        client.user.presence.set({
+            activities: [
+                {
+                    name: 'for Phishing Links...',
+                    type: 'WATCHING'
+                }
+            ]
+        })
+
         setInterval(async () => {
             client.data.sites = await fetch('https://phish.sinking.yachts/v2/all').then((data) => data.json());
         }, 36e5);
