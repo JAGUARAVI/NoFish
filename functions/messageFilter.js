@@ -39,7 +39,7 @@ module.exports = messageFilter = async (client, message, next) => {
                 content: `:x: **The message could not be deleted.** Please check my perissions!`,
             });
 
-            message.channel.send(`${message.author.toString()} (${message.author.tag}) sent a phishing link.`).then((msg) => setTimeout(() => message.guild.db.settings.deleteMessage ? msg.delete() : null, 60000));
+            message.channel.send(`${message.author.toString()} (${message.author.tag}) sent a phishing link.`).then((msg) => setTimeout(() => message.guild.db.settings.deleteNotification ? msg.delete() : null, 60000));
 
             const punishment = 'Message Deleted' + (message.guild.db.settings.punishment == 1 && message.member.kickable ? ' and Member Kicked' : message.guild.db.settings.punishment == 2 && message.member.bannable ? ' and Member Banned' : '');
 
