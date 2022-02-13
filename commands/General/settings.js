@@ -126,7 +126,7 @@ module.exports = class Command extends BaseCommand {
                 break;
             }
             case 'deletenotification': {
-                const value = ctx.isCommand ? ctx.source.options.getBoolean('enabled') : ctx.args[1]?.toLowerCase();
+                const value = ctx.isCommand ? ctx.source.options.get('enabled')?.value : ctx.args[1]?.toLowerCase();
                 if (value === undefined) {
                     ctx.reply({
                         embeds: [
