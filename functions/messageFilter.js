@@ -43,7 +43,7 @@ module.exports = messageFilter = async (client, message, next) => {
 
             const punishment = 'Message Deleted' + (message.guild.db.settings.punishment == 1 && message.member.kickable ? ' and Member Kicked' : message.guild.db.settings.punishment == 2 && message.member.bannable ? ' and Member Banned' : '');
 
-            message.author.send({
+            await message.author.send({
                 embeds: [
                     new MessageEmbed()
                         .setColor('RED')
